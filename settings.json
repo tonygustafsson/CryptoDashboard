@@ -1,0 +1,12 @@
+{
+    "dbName": "marketcap.sqlite",
+    "coinMarketCapApiKey": "744a3138-6882-41c7-97b6-8b03aa03fd0f",
+    "clientPort": 3000,
+    "serverPort": 3001,
+    "serverCheckForChangesInterval": 5000,
+    "momentLocale": "sv",
+    "momentDateLongFormat": "lll",
+    "momentDateShortFormat": "MMM DD",
+    "momentTimeShortFormat": "HH:mm",
+    "googleServiceWaitTime": 1000
+}
