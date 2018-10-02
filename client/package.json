@@ -6,11 +6,11 @@
     "express": "^4.16.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-google-charts": "^1.5.5",
+    "react-google-charts": "^3.0.8",
     "react-proptypes": "^1.0.0",
     "react-redux": "^5.0.6",
-    "react-scripts": "1.1.1",
-    "redux": "^3.7.2",
+    "react-scripts": "2.0.3",
+    "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
     "socket.io-client": "^2.0.4",
     "styled-components": "^3.1.6"
@@ -22,8 +22,14 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint": "^4.19.0",
+    "eslint": "^5.6.1",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-prefer-object-spread": "^1.2.1"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
