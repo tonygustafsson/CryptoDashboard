@@ -32,8 +32,6 @@ setInterval(async () => {
     // Check for changes, push if something happens
     let statistics = await getStatistics();
 
-    console.log(statistics);
-
     if (prevHistoryExists() && serviceIsRunning()) {
         console.log("CoinMarketCap Service is currently running, wait until it's done");
         previousHistory = {}; // Reset this so that getStatistics() wont ignore request
@@ -110,7 +108,7 @@ let getGlobalMarket = async () => {
 
 let getMarketQuotes = async (symbol) => {
     try {
-        let marketQuotesQuery = `SELECT time, supply, maxSupply, price, volume24h, percentChange1h, percentChange24h, percentChange7d, marketCap FROM MarketQuotes WHERE symbol = "${symbol}" ORDER BY time`;
+        let marketQuotesQuery = `SELECT time, supply, maxSupply, price, volume24h, percentChange1h, percentChange24h, percentChange7d, marketcap FROM MarketQuotes WHERE symbol = "${symbol}" ORDER BY time`;
 
         return new Promise((resolve, reject) => {
             db.all(marketQuotesQuery, [], (err, rows) => {

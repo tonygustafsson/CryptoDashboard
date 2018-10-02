@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import * as constants from '../constants';
 
 import DoughnutChartContainer from '../containers/charts/DoughnutChartContainer';
-import GaugeChartContainer from '../containers/charts/GaugeChartContainer';
 import AreaChartContainer from '../containers/charts/AreaChartContainer';
 import DashboardBlockContainer from '../containers/DashboardBlockContainer';
 
@@ -36,7 +35,7 @@ const Heading = styled.h1`
     text-align: center;
 `;
 
-const Dashboard = ({ statistics, connectedToServer, view }) => {
+const GlobalMarket = ({ statistics, connectedToServer, view }) => {
     if (!connectedToServer) {
         return false;
     }
@@ -45,39 +44,17 @@ const Dashboard = ({ statistics, connectedToServer, view }) => {
         return false;
     }
 
-    const statisticsPeriod = () => {
-        switch (view) {
-            case constants.VIEWS.today:
-                return statistics.today;
-            case constants.VIEWS.lastWeek:
-                return statistics.lastWeek;
-            default:
-                return statistics.lastMonth;
-        }
-    };
-
-    const statisticsTotal = () => {
-        switch (view) {
-            case constants.VIEWS.today:
-                return statistics.totalToday;
-            case constants.VIEWS.lastWeek:
-                return statistics.totalLastWeek;
-            default:
-                return statistics.totalLastMonth;
-        }
-    };
-
     return (
         <div>
             <HeaderInfo>
-                Fetched statistics at {statistics.latest.time}
+                Fetched statistics at {statistics.globalMarketLatest.time}
             </HeaderInfo>
 
             <Heading>Global Market</Heading>
 
             <DashboardBlockArea>
-                <DashboardBlockContainer heading={statistics.latest.currencies} text="Currencies" />
-                <DashboardBlockContainer heading={statistics.latest.exchanges} text="Exchanges" />
+                <DashboardBlockContainer heading={statistics.globalMarketLatest.noCryptocurrencies} text="Currencies" />
+                <DashboardBlockContainer heading={statistics.globalMarketLatest.noExchanges} text="Exchanges" />
             </DashboardBlockArea>
 
             <DefaultWrapper>
@@ -106,9 +83,9 @@ const Dashboard = ({ statistics, connectedToServer, view }) => {
                 <DoughnutChartContainer
                     data={[
                         ['Currency', 'Percentage'],
-                        ['BTC', statistics.latest.btcDominance],
-                        ['ETH', statistics.latest.ethDominance],
-                        ['Others', statistics.latest.othersDominance]
+                        ['BTC', statistics.globalMarketLatest.btcDominance],
+                        ['ETH', statistics.globalMarketLatest.ethDominance],
+                        ['Others', 100 - statistics.globalMarketLatest.btcDominance - statistics.globalMarketLatest.ethDominance]
                     ]}
                 />
             </DefaultWrapper>
@@ -116,10 +93,10 @@ const Dashboard = ({ statistics, connectedToServer, view }) => {
     );
 }
 
-Dashboard.propTypes = {
+GlobalMarket.propTypes = {
     statistics: PropTypes.object,
     connectedToServer: PropTypes.bool,
     view: PropTypes.string
 };
 
-export default Dashboard;
+export default GlobalMarket;

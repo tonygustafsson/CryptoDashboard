@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import History from '../components/History';
+import GlobalMarket from '../components/GlobalMarket';
 
 const mapStateToProps = state => {
     return {
@@ -9,4 +9,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(History);
+export default connect(mapStateToProps)(GlobalMarket);

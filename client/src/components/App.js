@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import HistoryContainer from '../containers/HistoryContainer';
+import GlobalMarketContainer from '../containers/GlobalMarketContainer';
 import ViewChangerContainer from '../containers/ViewChangerContainer';
-import ActiveUsersContainer from '../containers/ActiveUsersContainer';
+import BTCQuotesContainer from '../containers/BTCQuotesContainer';
+import ETHQuotesContainer from '../containers/ETHQuotesContainer';
 import BoughtProductsContainer from '../containers/BoughtProductsContainer';
 import ErrorMessageContainer from '../containers/ErrorMessageContainer';
 
@@ -17,8 +18,9 @@ const App = () => {
         <AppWrapper>
             <ErrorMessageContainer />
             <ViewChangerContainer />
-            <HistoryContainer />
-            <ActiveUsersContainer />
+            <GlobalMarketContainer />
+            <BTCQuotesContainer />
+            <ETHQuotesContainer />
             <BoughtProductsContainer />
         </AppWrapper>
     );

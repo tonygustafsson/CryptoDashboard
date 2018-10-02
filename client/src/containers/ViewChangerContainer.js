@@ -1,11 +1,6 @@
 import { connect } from 'react-redux';
 import ViewChanger from '../components/ViewChanger';
 import { changeView } from '../actions';
-import * as constants from '../constants';
-
-let nextView = null,
-    autoUpdateViewTimer = null,
-    autoUpdateViews = false;
 
 const mapStateToProps = state => {
     return {
