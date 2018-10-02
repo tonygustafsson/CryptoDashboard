@@ -1,5 +1,3 @@
-const CircularJSON = require('circular-json');
-const fs = require('fs');
 var moment = require('moment');
 const fetch = require('node-fetch');
 
@@ -12,7 +10,8 @@ const globalMarket = function (db, settings) {
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
             'X-CMC_PRO_API_KEY': settings.coinMarketCapApiKey
-        }})
+        }
+    })
         .then(response => response.json())
         .then(response => {
             let time = moment(response.data.last_updated).unix(),
@@ -31,7 +30,7 @@ const globalMarket = function (db, settings) {
                 ${ethDominance}, ${noCryptocurrencies}, ${noExchanges}
             )`;
 
-            db.serialize(function() {           
+            db.serialize(function () {
                 let stmt = db.prepare(query);
                 stmt.run();
                 stmt.finalize();

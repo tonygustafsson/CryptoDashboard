@@ -1,5 +1,3 @@
-const CircularJSON = require('circular-json');
-const fs = require('fs');
 var moment = require('moment');
 const fetch = require('node-fetch');
 
@@ -12,7 +10,8 @@ const marketQuotes = function (db, settings) {
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
             'X-CMC_PRO_API_KEY': settings.coinMarketCapApiKey
-        }})
+        }
+    })
         .then(response => response.json())
         .then(response => {
             Object.keys(response.data).forEach(value => {
@@ -28,7 +27,7 @@ const marketQuotes = function (db, settings) {
                     percentChange7d = symbol.quote.USD.percent_change_7d,
                     marketCap = symbol.quote.USD.market_cap;
 
-                    query = `INSERT INTO MarketQuotes
+                query = `INSERT INTO MarketQuotes
                     (time, symbol, supply, maxSupply, price, volume24h, percentChange1h,
                         percentChange24h, percentChange7d, marketCap)
                     VALUES (
@@ -37,11 +36,11 @@ const marketQuotes = function (db, settings) {
                         ${percentChange7d}, ${marketCap}
                     )`;
 
-                    db.serialize(function() {           
-                        let stmt = db.prepare(query);
-                        stmt.run();
-                        stmt.finalize();
-                    });
+                db.serialize(function () {
+                    let stmt = db.prepare(query);
+                    stmt.run();
+                    stmt.finalize();
+                });
             });
 
             console.log('Done fetching market quotes.');
