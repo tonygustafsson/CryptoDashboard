@@ -27,3 +27,4 @@ marketcap.sqlite-journal
 marketcap.sqlite
 
 /**/package-lock.json
+/settings.json
