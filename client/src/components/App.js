@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import GlobalMarketContainer from '../containers/GlobalMarketContainer';
-import ViewChangerContainer from '../containers/ViewChangerContainer';
 import BTCQuotesContainer from '../containers/BTCQuotesContainer';
 import ETHQuotesContainer from '../containers/ETHQuotesContainer';
-import BoughtProductsContainer from '../containers/BoughtProductsContainer';
+import ViewChangerContainer from '../containers/ViewChangerContainer';
 import ErrorMessageContainer from '../containers/ErrorMessageContainer';
 
 const AppWrapper = styled.div`
@@ -21,7 +20,6 @@ const App = () => {
             <GlobalMarketContainer />
             <BTCQuotesContainer />
             <ETHQuotesContainer />
-            <BoughtProductsContainer />
         </AppWrapper>
     );
 }

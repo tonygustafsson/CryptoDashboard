@@ -4,8 +4,7 @@ const initState = {
   statistics: {},
   loading: true,
   connectedToServer: false,
-  view: constants.VIEWS.globalMarket,
-  autoUpdateViews: true,
+  view: constants.VIEWS.globalMarket
 };
 
 const statisticsReducer = (state = initState, action) => {
@@ -18,8 +17,6 @@ const statisticsReducer = (state = initState, action) => {
       return { ...state, loading: false, connectedToServer: false };
     case constants.CHANGE_VIEW:
       return { ...state, view: action.payload, autoUpdateViews: false };
-    case constants.AUTO_CHANGE_VIEW:
-      return { ...state, view: action.payload };
     default:
       return state;
   }
