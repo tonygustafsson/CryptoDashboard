@@ -1,8 +1,5 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# dependencies
-/client/node_modules
-
 # testing
 /client/coverage
 
@@ -20,16 +17,13 @@
 /client/yarn-debug.log*
 /client/yarn-error.log*
 
-
 /coinMarketCapService/node_modules/**/*
-/coinMarketCapService/debug
-
 /server/node_modules/**/*
-
 /client/node_modules/**/*
 
 /**/.vscode
-state.json
 
 marketcap.sqlite-journal
 marketcap.sqlite
+
+/**/package-lock.json
