@@ -17,13 +17,13 @@ db.on('error', (error) => {
 // Lock server while updating, avoid half done statistics in client
 fs.writeFileSync(__dirname + '/../server/lock', 'Update in progress.');
 
-setTimeout(() => globalMarket(db, settings), settings.googleServiceWaitTime);
-setTimeout(() => marketQuotes(db, settings), settings.googleServiceWaitTime);
+setTimeout(() => globalMarket(db, settings), settings.serviceWaitTime);
+setTimeout(() => marketQuotes(db, settings), settings.serviceWaitTime);
 
 // Unlock again afterwards
 setTimeout(() => {
     fs.unlinkSync(__dirname + '/../server/lock');
-}, settings.googleServiceWaitTime);
+}, settings.serviceWaitTime);
 
 process.on('exit', function () {
     db.close();

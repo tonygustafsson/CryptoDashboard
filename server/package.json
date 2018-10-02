@@ -1,5 +1,5 @@
 {
-  "name": "staranalytics-server",
+  "name": "cryptodashboard-server",
   "version": "0.0.1",
   "description": "A system for accessing statistics from sqlite",
   "main": "server.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Star Republic",
+  "author": "Tony Gustafsson",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.4",

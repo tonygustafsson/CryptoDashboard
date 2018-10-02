@@ -1,13 +1,13 @@
 {
-  "name": "staranalytics-googleserver",
+  "name": "coinmarketcap-api",
   "version": "0.0.1",
-  "description": "A system for monitoring traffic from Google Analytics",
+  "description": "A system for monitoring statistics from CoinMarketCap",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Star Republic",
+  "author": "Tony Gustafsson",
   "license": "ISC",
   "dependencies": {
     "fetch": "^1.1.0",

@@ -8,5 +8,5 @@
     "momentDateLongFormat": "lll",
     "momentDateShortFormat": "MMM DD",
     "momentTimeShortFormat": "HH:mm",
-    "googleServiceWaitTime": 1000
+    "serviceWaitTime": 1000
 }
