@@ -10,12 +10,11 @@ const ViewChangerLink = styled.a`
     text-decoration: ${props => props.currentView === props.view ? 'none' : 'underline'};
 `;
 
-const ViewChanger = ({ view, changeView }) => 
+const ViewChanger = ({ view, changeView }) =>
     <div>
-        <ViewChangerLink onClick={() => changeView(constants.VIEWS.lastMonth)} view={constants.VIEWS.lastMonth} currentView={view}>Last month</ViewChangerLink>
-        <ViewChangerLink onClick={() => changeView(constants.VIEWS.lastWeek)} view={constants.VIEWS.lastWeek} currentView={view}>Last week</ViewChangerLink>
-        <ViewChangerLink onClick={() => changeView(constants.VIEWS.today)} view={constants.VIEWS.today} currentView={view}>Today</ViewChangerLink>
-        <ViewChangerLink onClick={() => changeView(constants.VIEWS.realtime)} view={constants.VIEWS.realtime} currentView={view}>Realtime</ViewChangerLink>
+        <ViewChangerLink onClick={() => changeView(constants.VIEWS.globalMarket)} view={constants.VIEWS.globalMarket} currentView={view}>Global market</ViewChangerLink>
+        <ViewChangerLink onClick={() => changeView(constants.VIEWS.btcQuotes)} view={constants.VIEWS.btcQuotes} currentView={view}>Bitcoin</ViewChangerLink>
+        <ViewChangerLink onClick={() => changeView(constants.VIEWS.ethQuotes)} view={constants.VIEWS.ethQuotes} currentView={view}>Ethereum</ViewChangerLink>
     </div>
 
 ViewChanger.propTypes = {

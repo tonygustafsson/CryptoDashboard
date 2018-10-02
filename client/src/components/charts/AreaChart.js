@@ -20,7 +20,7 @@ const ChartContainer = styled.div`
     }
 `;
 
-const AreaChart = ( props ) => {
+const AreaChart = (props) => {
     return (
         <ChartContainer>
             <Chart
@@ -28,7 +28,7 @@ const AreaChart = ( props ) => {
                 data={props.data}
                 options={{
                     title: props.title,
-                    enableInteractivity: false,
+                    enableInteractivity: true,
                     backgroundColor: '#31343c',
                     colors: ['#17b3e4', '#22c995', '#c1d253'],
                     legend: { position: 'bottom' },

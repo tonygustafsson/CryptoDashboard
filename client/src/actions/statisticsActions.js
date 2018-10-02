@@ -30,13 +30,6 @@ export const changeView = (view) => {
     };
 };
 
-export const autoChangeView = (view) => {
-    return {
-        type: constants.AUTO_CHANGE_VIEW,
-        payload: view,
-    };
-};
-
 export const fetchStatistics = (data) => {
     return (dispatch) => {
         dispatch(fetchingInProgress());

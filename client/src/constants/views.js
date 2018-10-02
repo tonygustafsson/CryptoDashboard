@@ -1,8 +1,5 @@
 export const VIEWS = {
-    lastMonth: 'last-month',
-    lastWeek: 'last-week',
-    today: 'today',
-    realtime: 'realtime',   
+    globalMarket: 'globalMarket',
+    btcQuotes: 'btcQuotes',
+    ethQuotes: 'ethQuotes'
 };
-
-export const AUTOUPDATEVIEWTIMEOUT = 10000;

@@ -41,20 +41,9 @@ const Dashboard = ({ statistics, connectedToServer, view }) => {
         return false;
     }
 
-    if (view !== constants.VIEWS.lastMonth && view !== constants.VIEWS.lastWeek && view !== constants.VIEWS.today) {
+    if (view !== constants.VIEWS.globalMarket) {
         return false;
     }
-
-    const headingText = () => {
-        switch (view) {
-            case constants.VIEWS.today:
-                return 'Today';
-            case constants.VIEWS.lastWeek:
-                return 'Last week';
-            default:
-                return 'Last month';
-        }
-    };
 
     const statisticsPeriod = () => {
         switch (view) {
@@ -81,41 +70,34 @@ const Dashboard = ({ statistics, connectedToServer, view }) => {
     return (
         <div>
             <HeaderInfo>
-                Fetched statistics from {statistics.sitesChecked} sites at {statistics.fetchTime}
+                Fetched statistics at {statistics.latest.time}
             </HeaderInfo>
 
-            <Heading>{headingText()}</Heading>
+            <Heading>Global Market</Heading>
 
             <DashboardBlockArea>
-                <DashboardBlockContainer heading={statistics.activeUsers.length} text="Active users" />
-                <DashboardBlockContainer heading={statisticsTotal().pageViews} text="Page views" />
-                <DashboardBlockContainer heading={statisticsTotal().sessions} text="Sessions" />
-                <DashboardBlockContainer heading={statisticsTotal().transactions} text="Transactions" />
-                <DashboardBlockContainer heading={statisticsTotal().revenue + " SEK"} text="Revenue" />
-                <DashboardBlockContainer heading={statisticsTotal().revenuePerTransaction + " SEK"} text="Revenue / Transaction" />
-                <DashboardBlockContainer heading={statisticsTotal().soldProducts} text="Products sold" />
-                <DashboardBlockContainer heading={statisticsTotal().averagePageLoadTime + " s"} text="Page load time" />
+                <DashboardBlockContainer heading={statistics.latest.currencies} text="Currencies" />
+                <DashboardBlockContainer heading={statistics.latest.exchanges} text="Exchanges" />
             </DashboardBlockArea>
 
             <DefaultWrapper>
                 <AreaChartContainer
-                    title="Users"
-                    dataHeadings={['Date', 'Page views', 'Sessions']}
+                    title="Total MarketCap"
+                    dataHeadings={['Date', 'USD']}
+                    format="#M"
                     data={[
-                        statisticsPeriod().reduce((newArray, value) => { newArray.push(value.timeShort); return newArray; }, []),
-                        statisticsPeriod().reduce((newArray, value) => { newArray.push(value.pageViews); return newArray; }, []),
-                        statisticsPeriod().reduce((newArray, value) => { newArray.push(value.sessions); return newArray; }, []),
+                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
+                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.marketcap); return newArray; }, [])
                     ]}
                 />
 
                 <AreaChartContainer
-                    title="Revenue"
-                    dataHeadings={['Date', 'Revenue', 'Products']}
-                    format="#.### SEK"
+                    title="Total Volume 24h"
+                    dataHeadings={['Date', 'USD']}
+                    format="#M"
                     data={[
-                        statisticsPeriod().reduce((newArray, value) => { newArray.push(value.timeShort); return newArray; }, []),
-                        statisticsPeriod().reduce((newArray, value) => { newArray.push(value.revenue); return newArray; }, []),
-                        statisticsPeriod().reduce((newArray, value) => { newArray.push(value.soldProducts); return newArray; }, []),
+                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
+                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.volume24h); return newArray; }, [])
                     ]}
                 />
             </DefaultWrapper>
@@ -123,28 +105,10 @@ const Dashboard = ({ statistics, connectedToServer, view }) => {
             <DefaultWrapper>
                 <DoughnutChartContainer
                     data={[
-                        ['Visitor type', 'Sessions'],
-                        ['New visitors', statisticsTotal().newUsers],
-                        ['Returning visitors', (statisticsTotal().sessions - statisticsTotal().newUsers)]
-                    ]}
-                />
-
-                <DoughnutChartContainer
-                    data={[
-                        ['Device type', 'Users'],
-                        ['Desktop', statistics.activeUsers.filter(x => x.deviceType === "DESKTOP").length],
-                        ['Mobile', statistics.activeUsers.filter(x => x.deviceType === "MOBILE").length],
-                        ['Tablet', statistics.activeUsers.filter(x => x.deviceType === "TABLET").length],
-                    ]}
-                />
-            
-                <GaugeChartContainer
-                    data={[
-                        ['Metric', 'Value'],
-                        ['Page views', Math.floor(statisticsPeriod().slice(-1)[0].pageViews / statistics.top.pageViews * 100)],
-                        ['Sessions', Math.floor(statisticsPeriod().slice(-1)[0].sessions / statistics.top.sessions * 100)],
-                        ['Revenue', Math.floor(statisticsPeriod().slice(-1)[0].revenue / statistics.top.revenue * 100)],
-                        ['Products', Math.floor(statisticsPeriod().slice(-1)[0].soldProducts / statistics.top.soldProducts * 100)],
+                        ['Currency', 'Percentage'],
+                        ['BTC', statistics.latest.btcDominance],
+                        ['ETH', statistics.latest.ethDominance],
+                        ['Others', statistics.latest.othersDominance]
                     ]}
                 />
             </DefaultWrapper>
