@@ -103,6 +103,22 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
                         ]
                     ]}
                 />
+
+                <AreaChartContainer
+                    title="Active currencies"
+                    dataHeadings={['Date', 'Currencies']}
+                    format="#"
+                    data={[
+                        statistics.globalMarket.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.globalMarket.reduce((newArray, value) => {
+                            newArray.push(value.noCryptocurrencies);
+                            return newArray;
+                        }, [])
+                    ]}
+                />
             </DefaultWrapper>
         </div>
     );
