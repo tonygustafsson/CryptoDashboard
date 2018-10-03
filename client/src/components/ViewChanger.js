@@ -33,6 +33,13 @@ const ViewChanger = ({ view, changeView }) => (
         >
             Ethereum
         </ViewChangerLink>
+        <ViewChangerLink
+            onClick={() => changeView(constants.VIEWS.XRPQuotes)}
+            view={constants.VIEWS.XRPQuotes}
+            currentView={view}
+        >
+            Ripple
+        </ViewChangerLink>
     </div>
 );
 

@@ -56,7 +56,7 @@ const Quotes = ({ statistics, connectedToServer, view, title, symbol }) => {
             <DashboardBlockArea>
                 <DashboardBlockContainer heading={latestQuote.marketcap + 'M USD'} text="Marketcap" />
                 <DashboardBlockContainer heading={latestQuote.price + ' USD'} text="Current price" />
-                <DashboardBlockContainer heading={latestQuote.supply + ' BTC'} text="Circulating supply" />
+                <DashboardBlockContainer heading={latestQuote.supply + ' ' + symbol} text="Circulating supply" />
             </DashboardBlockArea>
 
             <DashboardBlockArea>

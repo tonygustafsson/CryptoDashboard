@@ -19,6 +19,7 @@ const App = () => {
             <GlobalMarketContainer />
             <QuotesContainer title="Bitcoin" symbol="BTC" />
             <QuotesContainer title="Ethereum" symbol="ETH" />
+            <QuotesContainer title="Ripple" symbol="XRP" />
         </AppWrapper>
     );
 };

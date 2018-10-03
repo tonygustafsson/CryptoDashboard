@@ -1,5 +1,6 @@
 export const VIEWS = {
     globalMarket: 'globalMarket',
     BTCQuotes: 'BTCQuotes',
-    ETHQuotes: 'ETHQuotes'
+    ETHQuotes: 'ETHQuotes',
+    XRPQuotes: 'XRPQuotes'
 };
