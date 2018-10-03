@@ -35,23 +35,23 @@ const Heading = styled.h1`
     text-align: center;
 `;
 
-const BTCQuotes = ({ statistics, connectedToServer, view }) => {
+const Quotes = ({ statistics, connectedToServer, view, title, symbol }) => {
     if (!connectedToServer) {
         return false;
     }
 
-    if (view !== constants.VIEWS.btcQuotes) {
+    if (view !== constants.VIEWS[symbol + 'Quotes']) {
         return false;
     }
 
-    const quote = statistics.quotes['BTC'];
-    const latestQuote = statistics.quotes['BTC'][statistics.quotes['BTC'].length - 1];
+    const quote = statistics.quotes[symbol];
+    const latestQuote = statistics.quotes[symbol][statistics.quotes[symbol].length - 1];
 
     return (
         <div>
             <HeaderInfo>Fetched statistics at {latestQuote.time}</HeaderInfo>
 
-            <Heading>Bitcoin</Heading>
+            <Heading>{title}</Heading>
 
             <DashboardBlockArea>
                 <DashboardBlockContainer heading={latestQuote.marketcap + 'M USD'} text="Marketcap" />
@@ -126,10 +126,12 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
     );
 };
 
-BTCQuotes.propTypes = {
+Quotes.propTypes = {
     statistics: PropTypes.object,
     connectedToServer: PropTypes.bool,
-    view: PropTypes.string
+    view: PropTypes.string,
+    title: PropTypes.string,
+    symbol: PropTypes.string
 };
 
-export default BTCQuotes;
+export default Quotes;

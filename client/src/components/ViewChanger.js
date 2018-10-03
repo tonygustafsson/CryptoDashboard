@@ -20,15 +20,15 @@ const ViewChanger = ({ view, changeView }) => (
             Global market
         </ViewChangerLink>
         <ViewChangerLink
-            onClick={() => changeView(constants.VIEWS.btcQuotes)}
-            view={constants.VIEWS.btcQuotes}
+            onClick={() => changeView(constants.VIEWS.BTCQuotes)}
+            view={constants.VIEWS.BTCQuotes}
             currentView={view}
         >
             Bitcoin
         </ViewChangerLink>
         <ViewChangerLink
-            onClick={() => changeView(constants.VIEWS.ethQuotes)}
-            view={constants.VIEWS.ethQuotes}
+            onClick={() => changeView(constants.VIEWS.ETHQuotes)}
+            view={constants.VIEWS.ETHQuotes}
             currentView={view}
         >
             Ethereum
