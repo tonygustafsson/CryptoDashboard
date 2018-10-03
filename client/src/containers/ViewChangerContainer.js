@@ -4,14 +4,17 @@ import { changeView } from '../actions';
 
 const mapStateToProps = state => {
     return {
-        view: state.dashboard.view,
+        view: state.dashboard.view
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeView: (view) => dispatch(changeView(view)),
+        changeView: view => dispatch(changeView(view))
     };
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewChanger);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ViewChanger);

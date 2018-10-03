@@ -13,14 +13,12 @@ class DoughnutChartContainer extends React.Component {
     }
 
     render() {
-        return (
-            <DoughnutChart id={this.id} data={this.props.data} />
-        );
+        return <DoughnutChart id={this.id} data={this.props.data} />;
     }
 }
 
 DoughnutChartContainer.propTypes = {
-    data: PropTypes.array,
+    data: PropTypes.array
 };
 
 export default DoughnutChartContainer;

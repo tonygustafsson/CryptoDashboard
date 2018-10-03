@@ -49,7 +49,7 @@ AreaChartContainer.propTypes = {
     data: PropTypes.array,
     title: PropTypes.string,
     dataHeadings: PropTypes.array,
-    format: PropTypes.string,
+    format: PropTypes.string
 };
 
 export default AreaChartContainer;

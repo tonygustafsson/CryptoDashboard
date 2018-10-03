@@ -15,7 +15,7 @@ const ChartContainer = styled.div`
     }
 `;
 
-const DoughnutChart = (props) => {
+const DoughnutChart = props => {
     return (
         <ChartContainer>
             <Chart
@@ -23,7 +23,11 @@ const DoughnutChart = (props) => {
                 data={props.data}
                 options={{
                     pieHole: 0.7,
-                    legend: { alignment: 'center', position: 'bottom', textStyle: { color: '#fff', fontName: 'Bitter', fontSize: 16 } },
+                    legend: {
+                        alignment: 'center',
+                        position: 'bottom',
+                        textStyle: { color: '#fff', fontName: 'Bitter', fontSize: 16 }
+                    },
                     backgroundColor: '#31343c',
                     pieSliceTextStyle: { color: '#fff', fontSize: 16, fontName: 'Bitter' },
                     colors: ['#17b3e4', '#22c995', '#c1d253'],
@@ -35,11 +39,11 @@ const DoughnutChart = (props) => {
             />
         </ChartContainer>
     );
-}
+};
 
 DoughnutChart.propTypes = {
     id: PropTypes.string,
-    data: PropTypes.array,
+    data: PropTypes.array
 };
 
 export default DoughnutChart;

@@ -46,21 +46,25 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
 
     return (
         <div>
-            <HeaderInfo>
-                Fetched statistics at {statistics.ethQuotesLatest.time}
-            </HeaderInfo>
+            <HeaderInfo>Fetched statistics at {statistics.ethQuotesLatest.time}</HeaderInfo>
 
             <Heading>Ethereum</Heading>
 
             <DashboardBlockArea>
                 <DashboardBlockContainer heading={statistics.ethQuotesLatest.marketcap + 'M USD'} text="Marketcap" />
                 <DashboardBlockContainer heading={statistics.ethQuotesLatest.price + ' USD'} text="Current price" />
-                <DashboardBlockContainer heading={statistics.ethQuotesLatest.supply + ' ETH'} text="Circulating supply" />
+                <DashboardBlockContainer
+                    heading={statistics.ethQuotesLatest.supply + ' ETH'}
+                    text="Circulating supply"
+                />
             </DashboardBlockArea>
 
             <DashboardBlockArea>
                 <DashboardBlockContainer heading={statistics.ethQuotesLatest.percentChange1h + '%'} text="1h change" />
-                <DashboardBlockContainer heading={statistics.ethQuotesLatest.percentChange24h + '%'} text="24h change" />
+                <DashboardBlockContainer
+                    heading={statistics.ethQuotesLatest.percentChange24h + '%'}
+                    text="24h change"
+                />
                 <DashboardBlockContainer heading={statistics.ethQuotesLatest.percentChange7d + '%'} text="7d change" />
             </DashboardBlockArea>
 
@@ -70,8 +74,14 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.ethQuotes.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.ethQuotes.reduce((newArray, value) => { newArray.push(value.marketcap); return newArray; }, [])
+                        statistics.ethQuotes.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.ethQuotes.reduce((newArray, value) => {
+                            newArray.push(value.marketcap);
+                            return newArray;
+                        }, [])
                     ]}
                 />
 
@@ -80,8 +90,14 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#"
                     data={[
-                        statistics.ethQuotes.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.ethQuotes.reduce((newArray, value) => { newArray.push(value.price); return newArray; }, [])
+                        statistics.ethQuotes.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.ethQuotes.reduce((newArray, value) => {
+                            newArray.push(value.price);
+                            return newArray;
+                        }, [])
                     ]}
                 />
 
@@ -90,8 +106,14 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.ethQuotes.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.ethQuotes.reduce((newArray, value) => { newArray.push(value.volume24h); return newArray; }, [])
+                        statistics.ethQuotes.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.ethQuotes.reduce((newArray, value) => {
+                            newArray.push(value.volume24h);
+                            return newArray;
+                        }, [])
                     ]}
                 />
 
@@ -105,7 +127,7 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
             </DefaultWrapper>
         </div>
     );
-}
+};
 
 ETHQuotes.propTypes = {
     statistics: PropTypes.object,

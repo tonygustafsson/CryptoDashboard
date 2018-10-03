@@ -1,21 +1,21 @@
 {
-  "name": "cryptodashboard-server",
-  "version": "0.0.1",
-  "description": "A system for accessing statistics from sqlite",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "Tony Gustafsson",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "fs": "0.0.1-security",
-    "http": "0.0.0",
-    "moment": "^2.20.1",
-    "socket.io": "^2.0.4",
-    "sqlite3": "^4.0.2"
-  }
+    "name": "cryptodashboard-server",
+    "version": "0.0.1",
+    "description": "A system for accessing statistics from sqlite",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "author": "Tony Gustafsson",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.4",
+        "express": "^4.16.2",
+        "fs": "0.0.1-security",
+        "http": "0.0.0",
+        "moment": "^2.20.1",
+        "socket.io": "^2.0.4",
+        "sqlite3": "^4.0.2"
+    }
 }

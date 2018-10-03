@@ -20,7 +20,7 @@ const ChartContainer = styled.div`
     }
 `;
 
-const AreaChart = (props) => {
+const AreaChart = props => {
     return (
         <ChartContainer>
             <Chart
@@ -37,14 +37,14 @@ const AreaChart = (props) => {
                     vAxis: {
                         textStyle: { color: '#fff', fontName: 'Bitter', fontSize: 16 },
                         format: props.format,
-                        gridlines: { color: '#636363' },
+                        gridlines: { color: '#636363' }
                     },
                     hAxis: {
                         textStyle: { color: '#fff', fontName: 'Bitter', fontSize: 16 },
                         maxAlternation: 1,
-                        showTextEvery: 2,
+                        showTextEvery: 2
                     },
-                    lineWidth: 2,
+                    lineWidth: 2
                 }}
                 graph_id={props.id}
                 width="100%"
@@ -52,13 +52,13 @@ const AreaChart = (props) => {
             />
         </ChartContainer>
     );
-}
+};
 
 AreaChart.propTypes = {
     data: PropTypes.array,
     title: PropTypes.string,
     id: PropTypes.string,
-    format: PropTypes.string,
+    format: PropTypes.string
 };
 
 export default AreaChart;

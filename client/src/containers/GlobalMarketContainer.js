@@ -5,7 +5,7 @@ const mapStateToProps = state => {
     return {
         statistics: state.dashboard.statistics,
         connectedToServer: state.dashboard.connectedToServer,
-        view: state.dashboard.view,
+        view: state.dashboard.view
     };
 };
 

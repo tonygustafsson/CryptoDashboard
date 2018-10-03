@@ -1,8 +1,8 @@
 var moment = require('moment');
 const fetch = require('node-fetch');
 
-const marketQuotes = function (db, settings) {
-    var endpoint = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC,ETH';
+const marketQuotes = function(db, settings) {
+    var endpoint = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC,ETH,XRP';
 
     fetch(endpoint, {
         method: 'GET',
@@ -36,7 +36,7 @@ const marketQuotes = function (db, settings) {
                         ${percentChange7d}, ${marketCap}
                     )`;
 
-                db.serialize(function () {
+                db.serialize(function() {
                     let stmt = db.prepare(query);
                     stmt.run();
                     stmt.finalize();

@@ -15,7 +15,7 @@ const ChartContainer = styled.div`
     }
 `;
 
-const GaugeChart = ( props ) => {
+const GaugeChart = props => {
     return (
         <ChartContainer>
             <Chart
@@ -23,7 +23,7 @@ const GaugeChart = ( props ) => {
                 data={props.data}
                 options={{
                     width: 800,
-                    height: 200,
+                    height: 200
                 }}
                 graph_id={props.id}
                 width="100%"
@@ -31,11 +31,11 @@ const GaugeChart = ( props ) => {
             />
         </ChartContainer>
     );
-}
+};
 
 GaugeChart.propTypes = {
     data: PropTypes.array,
-    id: PropTypes.string,
+    id: PropTypes.string
 };
 
 export default GaugeChart;

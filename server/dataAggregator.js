@@ -3,7 +3,7 @@ const settings = require(__dirname + '/../settings.json');
 
 moment.locale(settings.momentLocale);
 
-const dataAggregator = function (data) {
+const dataAggregator = function(data) {
     var output = {
         globalMarket: [],
         btcQuotes: [],
@@ -22,7 +22,7 @@ const dataAggregator = function (data) {
             btcDominance: data.globalMarket[i].btcDominance,
             ethDominance: data.globalMarket[i].ethDominance,
             noCryptocurrencies: data.globalMarket[i].noCryptocurrencies,
-            noExchanges: data.globalMarket[i].noExchanges,
+            noExchanges: data.globalMarket[i].noExchanges
         });
     }
 
@@ -32,7 +32,9 @@ const dataAggregator = function (data) {
         output.btcQuotes.push({
             time: moment.unix(data.btcQuotes[i].time).format(settings.momentDateLongFormat),
             supply: Math.round(data.btcQuotes[i].supply),
-            maxSupply: data.btcQuotes[i].maxSupply ? Math.round(data.btcQuotes[i].maxSupply) : Math.round(data.btcQuotes[i].supply),
+            maxSupply: data.btcQuotes[i].maxSupply
+                ? Math.round(data.btcQuotes[i].maxSupply)
+                : Math.round(data.btcQuotes[i].supply),
             price: Math.round(data.btcQuotes[i].price),
             volume24h: Math.round(data.btcQuotes[i].volume24h / 1000000),
             percentChange1h: data.btcQuotes[i].percentChange1h.toFixed(2),
@@ -48,7 +50,9 @@ const dataAggregator = function (data) {
         output.ethQuotes.push({
             time: moment.unix(data.ethQuotes[i].time).format(settings.momentDateLongFormat),
             supply: Math.round(data.ethQuotes[i].supply),
-            maxSupply: data.ethQuotes[i].maxSupply ? Math.round(data.ethQuotes[i].maxSupply) : Math.round(data.ethQuotes[i].supply),
+            maxSupply: data.ethQuotes[i].maxSupply
+                ? Math.round(data.ethQuotes[i].maxSupply)
+                : Math.round(data.ethQuotes[i].supply),
             price: Math.round(data.ethQuotes[i].price),
             volume24h: Math.round(data.ethQuotes[i].volume24h / 1000000),
             percentChange1h: data.ethQuotes[i].percentChange1h.toFixed(2),

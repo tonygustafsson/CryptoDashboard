@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import GaugeChart from '../../components/charts/GaugeChart';
 
 class GaugeChartContainer extends React.Component {
-    componentWillMount() {       
+    componentWillMount() {
         this.id = 'GaugeChart-' + Math.random();
     }
 
@@ -13,14 +13,12 @@ class GaugeChartContainer extends React.Component {
     }
 
     render() {
-        return (
-            <GaugeChart id={this.id} data={this.props.data} />
-        );
+        return <GaugeChart id={this.id} data={this.props.data} />;
     }
 }
 
 GaugeChartContainer.propTypes = {
-    data: PropTypes.array,
+    data: PropTypes.array
 };
 
 export default GaugeChartContainer;

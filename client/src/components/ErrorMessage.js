@@ -11,10 +11,10 @@ const ErrorMessage = ({ connectedToServer }) => {
             <h1>Not connected to the server.</h1>
         </div>
     );
-}
+};
 
 ErrorMessage.propTypes = {
-    connectedToServer: PropTypes.bool,
+    connectedToServer: PropTypes.bool
 };
 
 export default ErrorMessage;

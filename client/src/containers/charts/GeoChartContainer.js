@@ -4,23 +4,25 @@ import PropTypes from 'prop-types';
 import GeoChart from '../../components/charts/GeoChart';
 
 class GeoChartContainer extends React.Component {
-    componentWillMount() {       
+    componentWillMount() {
         this.id = 'GeoChart-' + Math.random();
         this.data = [];
 
         switch (this.props.dataBy) {
             case 'countries':
                 this.data = this.props.data.reduce((prevVal, x) => {
-                    let activeUsers = typeof(prevVal[x.country]) !== 'undefined' ? prevVal[x.country] + x.activeUsers : x.activeUsers,
+                    let activeUsers =
+                            typeof prevVal[x.country] !== 'undefined'
+                                ? prevVal[x.country] + x.activeUsers
+                                : x.activeUsers,
                         countryInList = prevVal.find(country => country[0] === x.country);
 
-                    if (typeof(countryInList) === 'undefined') {
+                    if (typeof countryInList === 'undefined') {
                         prevVal.push([x.country, activeUsers]);
-                    }
-                    else {
+                    } else {
                         countryInList = activeUsers;
                     }
-                    
+
                     return prevVal;
                 }, []);
 
@@ -29,16 +31,16 @@ class GeoChartContainer extends React.Component {
                 break;
             case 'cities':
                 this.data = this.props.data.reduce((prevVal, x) => {
-                    let activeUsers = typeof(prevVal[x.city]) !== 'undefined' ? prevVal[x.city] + x.activeUsers : x.activeUsers,
+                    let activeUsers =
+                            typeof prevVal[x.city] !== 'undefined' ? prevVal[x.city] + x.activeUsers : x.activeUsers,
                         cityInList = prevVal.find(city => city[0] === x.city);
 
-                    if (typeof(cityInList) === 'undefined') {
+                    if (typeof cityInList === 'undefined') {
                         prevVal.push([`${x.city}, ${x.country}`, activeUsers]);
-                    }
-                    else {
+                    } else {
                         cityInList = activeUsers;
                     }
-                    
+
                     return prevVal;
                 }, []);
 
@@ -71,7 +73,7 @@ GeoChartContainer.propTypes = {
     data: PropTypes.array,
     displayMode: PropTypes.string,
     dataBy: PropTypes.string,
-    region: PropTypes.string,
+    region: PropTypes.string
 };
 
 export default GeoChartContainer;

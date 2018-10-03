@@ -22,6 +22,6 @@ const App = () => {
             <ETHQuotesContainer />
         </AppWrapper>
     );
-}
+};
 
 export default App;

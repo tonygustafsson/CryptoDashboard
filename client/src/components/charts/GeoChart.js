@@ -19,7 +19,7 @@ const ChartContainer = styled.div`
     }
 `;
 
-const GeoChart = (props) => {
+const GeoChart = props => {
     return (
         <ChartContainer>
             <Chart
@@ -28,7 +28,7 @@ const GeoChart = (props) => {
                 options={{
                     backgroundColor: '#31343c',
                     displayMode: props.displayMode,
-                    colorAxis: {colors: ['#17b3e4', '#22c995', '#c1d253']},
+                    colorAxis: { colors: ['#17b3e4', '#22c995', '#c1d253'] },
                     datalessRegionColor: '#636363',
                     region: props.region,
                     magnifyingGlass: { enable: false },
@@ -38,10 +38,10 @@ const GeoChart = (props) => {
                             fontName: 'bitter',
                             backgroundColor: '#31343c',
                             color: '#fff',
-                            fontSize: 16,
-                        },
+                            fontSize: 16
+                        }
                     },
-                    enableRegionInteractivity: false,
+                    enableRegionInteractivity: false
                 }}
                 graph_id={props.id}
                 width="80%"
@@ -50,13 +50,13 @@ const GeoChart = (props) => {
             />
         </ChartContainer>
     );
-}
+};
 
 GeoChart.propTypes = {
     data: PropTypes.array,
     id: PropTypes.string,
     displayMode: PropTypes.string,
-    region: PropTypes.string,
+    region: PropTypes.string
 };
 
 export default GeoChart;

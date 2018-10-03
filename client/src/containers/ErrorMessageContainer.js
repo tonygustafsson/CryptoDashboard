@@ -3,7 +3,7 @@ import ErrorMessage from '../components/ErrorMessage';
 
 const mapStateToProps = state => {
     return {
-        connectedToServer: state.dashboard.connectedToServer,
+        connectedToServer: state.dashboard.connectedToServer
     };
 };
 

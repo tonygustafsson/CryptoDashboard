@@ -48,7 +48,7 @@ setInterval(async () => {
     previousStatistics = statistics;
 }, settings.serverCheckForChangesInterval);
 
-io.on('connection', async (socket) => {
+io.on('connection', async socket => {
     console.log(`New client connected with ID ${socket.id}`);
     console.log(`Fetch statistics for ${socket.id}`);
 
@@ -58,7 +58,7 @@ io.on('connection', async (socket) => {
     socket.on('disconnect', () => console.log(`Client disconnected with ID ${socket.id}`));
 });
 
-process.on('exit', function () {
+process.on('exit', function() {
     db.close();
     console.log('Exiting API.');
 });
@@ -70,7 +70,7 @@ let getStatistics = async () => {
                 globalMarket: await getGlobalMarket(),
                 btcQuotes: await getMarketQuotes('BTC'),
                 ethQuotes: await getMarketQuotes('ETH')
-            }
+            };
 
             if (prevHistoryExists() && objectsAreIdentical(history, previousHistory)) {
                 // No changes, no point in getting the rest
@@ -84,15 +84,15 @@ let getStatistics = async () => {
 
             resolve(aggregatedHistory);
         });
-    }
-    catch (err) {
+    } catch (err) {
         console.log('Could not fetch statistics', err);
     }
-}
+};
 
 let getGlobalMarket = async () => {
     try {
-        let globalMarketQuery = 'SELECT time, marketcap, volume24h, btcDominance, ethDominance, noCryptocurrencies, noExchanges FROM GlobalMarket ORDER BY time';
+        let globalMarketQuery =
+            'SELECT time, marketcap, volume24h, btcDominance, ethDominance, noCryptocurrencies, noExchanges FROM GlobalMarket ORDER BY time';
 
         return new Promise((resolve, reject) => {
             db.all(globalMarketQuery, [], (err, rows) => {
@@ -100,13 +100,12 @@ let getGlobalMarket = async () => {
                 resolve(rows);
             });
         });
-    }
-    catch (err) {
+    } catch (err) {
         throw Error('Could not fetch global market', err);
     }
 };
 
-let getMarketQuotes = async (symbol) => {
+let getMarketQuotes = async symbol => {
     try {
         let marketQuotesQuery = `SELECT time, supply, maxSupply, price, volume24h, percentChange1h, percentChange24h, percentChange7d, marketcap FROM MarketQuotes WHERE symbol = "${symbol}" ORDER BY time`;
 
@@ -116,8 +115,7 @@ let getMarketQuotes = async (symbol) => {
                 resolve(rows);
             });
         });
-    }
-    catch (err) {
+    } catch (err) {
         throw Error(`Could not fetch market quotes for ${symbol}`, err);
     }
 };

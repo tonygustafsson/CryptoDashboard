@@ -46,21 +46,25 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
 
     return (
         <div>
-            <HeaderInfo>
-                Fetched statistics at {statistics.btcQuotesLatest.time}
-            </HeaderInfo>
+            <HeaderInfo>Fetched statistics at {statistics.btcQuotesLatest.time}</HeaderInfo>
 
             <Heading>Bitcoin</Heading>
 
             <DashboardBlockArea>
                 <DashboardBlockContainer heading={statistics.btcQuotesLatest.marketcap + 'M USD'} text="Marketcap" />
                 <DashboardBlockContainer heading={statistics.btcQuotesLatest.price + ' USD'} text="Current price" />
-                <DashboardBlockContainer heading={statistics.btcQuotesLatest.supply + ' BTC'} text="Circulating supply" />
+                <DashboardBlockContainer
+                    heading={statistics.btcQuotesLatest.supply + ' BTC'}
+                    text="Circulating supply"
+                />
             </DashboardBlockArea>
 
             <DashboardBlockArea>
                 <DashboardBlockContainer heading={statistics.btcQuotesLatest.percentChange1h + '%'} text="1h change" />
-                <DashboardBlockContainer heading={statistics.btcQuotesLatest.percentChange24h + '%'} text="24h change" />
+                <DashboardBlockContainer
+                    heading={statistics.btcQuotesLatest.percentChange24h + '%'}
+                    text="24h change"
+                />
                 <DashboardBlockContainer heading={statistics.btcQuotesLatest.percentChange7d + '%'} text="7d change" />
             </DashboardBlockArea>
 
@@ -70,8 +74,14 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.btcQuotes.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.btcQuotes.reduce((newArray, value) => { newArray.push(value.marketcap); return newArray; }, [])
+                        statistics.btcQuotes.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.btcQuotes.reduce((newArray, value) => {
+                            newArray.push(value.marketcap);
+                            return newArray;
+                        }, [])
                     ]}
                 />
 
@@ -80,8 +90,14 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#"
                     data={[
-                        statistics.btcQuotes.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.btcQuotes.reduce((newArray, value) => { newArray.push(value.price); return newArray; }, [])
+                        statistics.btcQuotes.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.btcQuotes.reduce((newArray, value) => {
+                            newArray.push(value.price);
+                            return newArray;
+                        }, [])
                     ]}
                 />
 
@@ -90,8 +106,14 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.btcQuotes.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.btcQuotes.reduce((newArray, value) => { newArray.push(value.volume24h); return newArray; }, [])
+                        statistics.btcQuotes.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.btcQuotes.reduce((newArray, value) => {
+                            newArray.push(value.volume24h);
+                            return newArray;
+                        }, [])
                     ]}
                 />
 
@@ -105,7 +127,7 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
             </DefaultWrapper>
         </div>
     );
-}
+};
 
 BTCQuotes.propTypes = {
     statistics: PropTypes.object,

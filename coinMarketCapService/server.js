@@ -10,7 +10,7 @@ const db = new sqlite3.Database(dbLocation);
 const globalMarket = require('./globalMarket');
 const marketQuotes = require('./marketQuotes');
 
-db.on('error', (error) => {
+db.on('error', error => {
     console.log(`SQLite error: ${error}`);
 });
 
@@ -25,7 +25,7 @@ setTimeout(() => {
     fs.unlinkSync(__dirname + '/../server/lock');
 }, settings.serviceWaitTime);
 
-process.on('exit', function () {
+process.on('exit', function() {
     db.close();
 
     console.log('Done with everything.');

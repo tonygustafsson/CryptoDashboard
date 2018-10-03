@@ -46,9 +46,7 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
 
     return (
         <div>
-            <HeaderInfo>
-                Fetched statistics at {statistics.globalMarketLatest.time}
-            </HeaderInfo>
+            <HeaderInfo>Fetched statistics at {statistics.globalMarketLatest.time}</HeaderInfo>
 
             <Heading>Global Market</Heading>
 
@@ -63,8 +61,14 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.marketcap); return newArray; }, [])
+                        statistics.globalMarket.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.globalMarket.reduce((newArray, value) => {
+                            newArray.push(value.marketcap);
+                            return newArray;
+                        }, [])
                     ]}
                 />
 
@@ -73,8 +77,14 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.time); return newArray; }, []),
-                        statistics.globalMarket.reduce((newArray, value) => { newArray.push(value.volume24h); return newArray; }, [])
+                        statistics.globalMarket.reduce((newArray, value) => {
+                            newArray.push(value.time);
+                            return newArray;
+                        }, []),
+                        statistics.globalMarket.reduce((newArray, value) => {
+                            newArray.push(value.volume24h);
+                            return newArray;
+                        }, [])
                     ]}
                 />
             </DefaultWrapper>
@@ -85,13 +95,18 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
                         ['Currency', 'Percentage'],
                         ['BTC', statistics.globalMarketLatest.btcDominance],
                         ['ETH', statistics.globalMarketLatest.ethDominance],
-                        ['Others', 100 - statistics.globalMarketLatest.btcDominance - statistics.globalMarketLatest.ethDominance]
+                        [
+                            'Others',
+                            100 -
+                                statistics.globalMarketLatest.btcDominance -
+                                statistics.globalMarketLatest.ethDominance
+                        ]
                     ]}
                 />
             </DefaultWrapper>
         </div>
     );
-}
+};
 
 GlobalMarket.propTypes = {
     statistics: PropTypes.object,

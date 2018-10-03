@@ -1,7 +1,7 @@
 var moment = require('moment');
 const fetch = require('node-fetch');
 
-const globalMarket = function (db, settings) {
+const globalMarket = function(db, settings) {
     var endpoint = 'https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest';
 
     fetch(endpoint, {
@@ -22,7 +22,6 @@ const globalMarket = function (db, settings) {
                 noCryptocurrencies = response.data.active_cryptocurrencies,
                 noExchanges = response.data.active_exchanges;
 
-
             query = `INSERT INTO GlobalMarket
             (time, marketcap, volume24h, btcDominance, ethDominance, noCryptocurrencies, noExchanges)
             VALUES (
@@ -30,7 +29,7 @@ const globalMarket = function (db, settings) {
                 ${ethDominance}, ${noCryptocurrencies}, ${noExchanges}
             )`;
 
-            db.serialize(function () {
+            db.serialize(function() {
                 let stmt = db.prepare(query);
                 stmt.run();
                 stmt.finalize();
