@@ -35,6 +35,10 @@ A dashboard for monitoring crypto currencies.
 
 ![alt dataflow](CryptoDashboard.png)
 
+# Screenshot
+
+![alt screenshot](Screenshot.png)
+
 ## Unit tests for client
 
 -   Run npm test
