@@ -44,6 +44,7 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
         return false;
     }
 
+    const quote = statistics.quotes['BTC'];
     const latestQuote = statistics.quotes['BTC'][statistics.quotes['BTC'].length - 1];
 
     return (
@@ -70,11 +71,11 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.quotes['BTC'].reduce((newArray, value) => {
+                        quote.reduce((newArray, value) => {
                             newArray.push(value.time);
                             return newArray;
                         }, []),
-                        statistics.quotes['BTC'].reduce((newArray, value) => {
+                        quote.reduce((newArray, value) => {
                             newArray.push(value.marketcap);
                             return newArray;
                         }, [])
@@ -86,11 +87,11 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#"
                     data={[
-                        statistics.quotes['BTC'].reduce((newArray, value) => {
+                        quote.reduce((newArray, value) => {
                             newArray.push(value.time);
                             return newArray;
                         }, []),
-                        statistics.quotes['BTC'].reduce((newArray, value) => {
+                        quote.reduce((newArray, value) => {
                             newArray.push(value.price);
                             return newArray;
                         }, [])
@@ -102,11 +103,11 @@ const BTCQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.quotes['BTC'].reduce((newArray, value) => {
+                        quote.reduce((newArray, value) => {
                             newArray.push(value.time);
                             return newArray;
                         }, []),
-                        statistics.quotes['BTC'].reduce((newArray, value) => {
+                        quote.reduce((newArray, value) => {
                             newArray.push(value.volume24h);
                             return newArray;
                         }, [])
