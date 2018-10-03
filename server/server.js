@@ -68,8 +68,7 @@ let getStatistics = async () => {
         return new Promise(async (resolve, reject) => {
             let history = {
                 globalMarket: await getGlobalMarket(),
-                btcQuotes: await getMarketQuotes('BTC'),
-                ethQuotes: await getMarketQuotes('ETH')
+                quotes: await getMarketQuotes()
             };
 
             if (prevHistoryExists() && objectsAreIdentical(history, previousHistory)) {
@@ -92,7 +91,7 @@ let getStatistics = async () => {
 let getGlobalMarket = async () => {
     try {
         let globalMarketQuery =
-            'SELECT time, marketcap, volume24h, btcDominance, ethDominance, noCryptocurrencies, noExchanges FROM GlobalMarket ORDER BY time';
+            'SELECT time, marketcap, volume24h, btcDominance, ethDominance, noCryptocurrencies, noExchanges FROM GlobalMarket ORDER BY time LIMIT 1000';
 
         return new Promise((resolve, reject) => {
             db.all(globalMarketQuery, [], (err, rows) => {
@@ -105,9 +104,9 @@ let getGlobalMarket = async () => {
     }
 };
 
-let getMarketQuotes = async symbol => {
+let getMarketQuotes = async () => {
     try {
-        let marketQuotesQuery = `SELECT time, supply, maxSupply, price, volume24h, percentChange1h, percentChange24h, percentChange7d, marketcap FROM MarketQuotes WHERE symbol = "${symbol}" ORDER BY time`;
+        let marketQuotesQuery = `SELECT time, symbol, supply, maxSupply, price, volume24h, percentChange1h, percentChange24h, percentChange7d, marketcap FROM MarketQuotes ORDER BY time LIMIT 1000`;
 
         return new Promise((resolve, reject) => {
             db.all(marketQuotesQuery, [], (err, rows) => {

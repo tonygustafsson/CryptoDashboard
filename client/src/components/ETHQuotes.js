@@ -44,28 +44,24 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
         return false;
     }
 
+    const latestQuote = statistics.quotes['ETH'][statistics.quotes['ETH'].length - 1];
+
     return (
         <div>
-            <HeaderInfo>Fetched statistics at {statistics.ethQuotesLatest.time}</HeaderInfo>
+            <HeaderInfo>Fetched statistics at {latestQuote.time}</HeaderInfo>
 
             <Heading>Ethereum</Heading>
 
             <DashboardBlockArea>
-                <DashboardBlockContainer heading={statistics.ethQuotesLatest.marketcap + 'M USD'} text="Marketcap" />
-                <DashboardBlockContainer heading={statistics.ethQuotesLatest.price + ' USD'} text="Current price" />
-                <DashboardBlockContainer
-                    heading={statistics.ethQuotesLatest.supply + ' ETH'}
-                    text="Circulating supply"
-                />
+                <DashboardBlockContainer heading={latestQuote.marketcap + 'M USD'} text="Marketcap" />
+                <DashboardBlockContainer heading={latestQuote.price + ' USD'} text="Current price" />
+                <DashboardBlockContainer heading={latestQuote.supply + ' ETH'} text="Circulating supply" />
             </DashboardBlockArea>
 
             <DashboardBlockArea>
-                <DashboardBlockContainer heading={statistics.ethQuotesLatest.percentChange1h + '%'} text="1h change" />
-                <DashboardBlockContainer
-                    heading={statistics.ethQuotesLatest.percentChange24h + '%'}
-                    text="24h change"
-                />
-                <DashboardBlockContainer heading={statistics.ethQuotesLatest.percentChange7d + '%'} text="7d change" />
+                <DashboardBlockContainer heading={latestQuote.percentChange1h + '%'} text="1h change" />
+                <DashboardBlockContainer heading={latestQuote.percentChange24h + '%'} text="24h change" />
+                <DashboardBlockContainer heading={latestQuote.percentChange7d + '%'} text="7d change" />
             </DashboardBlockArea>
 
             <DefaultWrapper>
@@ -74,11 +70,11 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.ethQuotes.reduce((newArray, value) => {
+                        statistics.quotes['ETH'].reduce((newArray, value) => {
                             newArray.push(value.time);
                             return newArray;
                         }, []),
-                        statistics.ethQuotes.reduce((newArray, value) => {
+                        statistics.quotes['ETH'].reduce((newArray, value) => {
                             newArray.push(value.marketcap);
                             return newArray;
                         }, [])
@@ -90,11 +86,11 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#"
                     data={[
-                        statistics.ethQuotes.reduce((newArray, value) => {
+                        statistics.quotes['ETH'].reduce((newArray, value) => {
                             newArray.push(value.time);
                             return newArray;
                         }, []),
-                        statistics.ethQuotes.reduce((newArray, value) => {
+                        statistics.quotes['ETH'].reduce((newArray, value) => {
                             newArray.push(value.price);
                             return newArray;
                         }, [])
@@ -106,11 +102,11 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
                     dataHeadings={['Date', 'USD']}
                     format="#M"
                     data={[
-                        statistics.ethQuotes.reduce((newArray, value) => {
+                        statistics.quotes['ETH'].reduce((newArray, value) => {
                             newArray.push(value.time);
                             return newArray;
                         }, []),
-                        statistics.ethQuotes.reduce((newArray, value) => {
+                        statistics.quotes['ETH'].reduce((newArray, value) => {
                             newArray.push(value.volume24h);
                             return newArray;
                         }, [])
@@ -120,8 +116,8 @@ const ETHQuotes = ({ statistics, connectedToServer, view }) => {
                 <DoughnutChartContainer
                     data={[
                         ['Supply', 'Max'],
-                        ['Circulating supply', statistics.ethQuotesLatest.supply],
-                        ['Not mined yet', statistics.ethQuotesLatest.maxSupply - statistics.ethQuotesLatest.supply]
+                        ['Circulating supply', latestQuote.supply],
+                        ['Not mined yet', latestQuote.maxSupply - latestQuote.supply]
                     ]}
                 />
             </DefaultWrapper>
