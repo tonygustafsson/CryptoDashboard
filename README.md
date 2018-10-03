@@ -2,20 +2,17 @@
 
 A dashboard for monitoring crypto currencies.
 
--   /coinMarketCapService: A NodeJS scheduler that collects data from CoinMarketCap API and saves this do DB
--   /marketcap.sqlite: SQLITE database which stores all historical data
--   /server: A Node JS server API for accessing and pushing (socket.io) data
--   /client: A React frontend with powerful graph capabilities from Google Graphs
+-   **/coinMarketCapService:** A NodeJS scheduler that collects data from CoinMarketCap API and saves this do DB
+-   **/marketcap.sqlite:** SQLITE database which stores all historical data
+-   **/server:** A Node JS server API for accessing and pushing (socket.io) data
+-   **/client:** A React frontend with powerful graph capabilities from Google Graphs
 
 # Setup
 
 -   Install Node JS v8+ (check by (node -v")
 -   Create a SQLite tables by importing ./marketcap.sqlite.sql and save to ./marketcap.sqlite. No data is included.
     [Use this portable tool](https://portableapps.com/apps/development/sqlite_database_browser_portable)
-
-# Data flow
-
-![alt dataflow](CryptoDashboard.png)
+-   Change ./settings.json and add your CoinMarketCap API Key.
 
 # Setup develop environment
 
@@ -33,6 +30,10 @@ A dashboard for monitoring crypto currencies.
 
 -   Run npm install
 -   run npm start, from /client (localhost:3000)
+
+# Data flow
+
+![alt dataflow](CryptoDashboard.png)
 
 ## Unit tests for client
 
