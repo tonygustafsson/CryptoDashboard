@@ -16,7 +16,7 @@ const DashboardBlockArea = styled.div`
 `;
 
 const DefaultWrapper = styled.div`
-    display: block;
+    display: flex;
     width: 100%;
     margin: 0 auto;
 `;
@@ -97,7 +97,9 @@ const Quotes = ({ statistics, connectedToServer, view, title, symbol }) => {
                         }, [])
                     ]}
                 />
+            </DefaultWrapper>
 
+            <DefaultWrapper>
                 <AreaChartContainer
                     title="Volume 24h"
                     dataHeadings={['Date', 'USD']}
