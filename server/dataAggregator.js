@@ -31,6 +31,7 @@ const dataAggregator = function(data) {
 
         output.quotes[quote.symbol].push({
             time: moment.unix(quote.time).format(settings.momentDateLongFormat),
+            timeShort: moment.unix(quote.time).format(settings.momentDateShortFormat),
             supply: Math.round(quote.supply),
             maxSupply: quote.maxSupply ? Math.round(quote.maxSupply) : Math.round(quote.supply),
             price: Math.round(quote.price),

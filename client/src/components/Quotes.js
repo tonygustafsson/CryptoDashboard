@@ -72,7 +72,7 @@ const Quotes = ({ statistics, connectedToServer, view, title, symbol }) => {
                     format="#M"
                     data={[
                         quote.reduce((newArray, value) => {
-                            newArray.push(value.time);
+                            newArray.push(value.timeShort);
                             return newArray;
                         }, []),
                         quote.reduce((newArray, value) => {
@@ -88,7 +88,7 @@ const Quotes = ({ statistics, connectedToServer, view, title, symbol }) => {
                     format="#"
                     data={[
                         quote.reduce((newArray, value) => {
-                            newArray.push(value.time);
+                            newArray.push(value.timeShort);
                             return newArray;
                         }, []),
                         quote.reduce((newArray, value) => {
@@ -106,7 +106,7 @@ const Quotes = ({ statistics, connectedToServer, view, title, symbol }) => {
                     format="#M"
                     data={[
                         quote.reduce((newArray, value) => {
-                            newArray.push(value.time);
+                            newArray.push(value.timeShort);
                             return newArray;
                         }, []),
                         quote.reduce((newArray, value) => {

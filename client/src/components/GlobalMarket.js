@@ -62,7 +62,7 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
                     format="#M"
                     data={[
                         statistics.globalMarket.reduce((newArray, value) => {
-                            newArray.push(value.time);
+                            newArray.push(value.timeShort);
                             return newArray;
                         }, []),
                         statistics.globalMarket.reduce((newArray, value) => {
@@ -78,7 +78,7 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
                     format="#M"
                     data={[
                         statistics.globalMarket.reduce((newArray, value) => {
-                            newArray.push(value.time);
+                            newArray.push(value.timeShort);
                             return newArray;
                         }, []),
                         statistics.globalMarket.reduce((newArray, value) => {
@@ -110,7 +110,7 @@ const GlobalMarket = ({ statistics, connectedToServer, view }) => {
                     format="#"
                     data={[
                         statistics.globalMarket.reduce((newArray, value) => {
-                            newArray.push(value.time);
+                            newArray.push(value.timeShort);
                             return newArray;
                         }, []),
                         statistics.globalMarket.reduce((newArray, value) => {
