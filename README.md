@@ -31,6 +31,10 @@ A dashboard for monitoring crypto currencies.
 -   Run npm install
 -   run npm start, from /client (localhost:3000)
 
+## Unit tests for client
+
+-   Run npm test
+
 # Data flow
 
 ![alt dataflow](CryptoDashboard.png)
@@ -38,10 +42,6 @@ A dashboard for monitoring crypto currencies.
 # Screenshot
 
 ![alt screenshot](Screenshot.png)
-
-## Unit tests for client
-
--   Run npm test
 
 # Setup production environment
 
@@ -52,7 +52,6 @@ More info:
 
 # Links and tools
 
+-   https://pro.coinmarketcap.com/api/v1#section/Introduction
 -   https://www.npmjs.com/package/react-google-charts
 -   https://portableapps.com/apps/development/sqlite_database_browser_portable
-
-# TODO
