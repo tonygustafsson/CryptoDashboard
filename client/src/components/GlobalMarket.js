@@ -19,15 +19,23 @@ const DefaultWrapper = styled.div`
     display: flex;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+    }
 `;
 
 const HeaderInfo = styled.div`
     display: block;
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 22px;
     color: #636363;
     font-style: italic;
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
 `;
 
 const Heading = styled.h1`

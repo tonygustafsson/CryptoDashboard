@@ -10,13 +10,13 @@ const ChartContainer = styled.div`
     border: 1px #636363 solid;
     margin: 10px;
 
-    @media (max-width: 800px) {
-        width: 100%;
-    }
-
     > div {
         margin: 0 auto;
         padding-bottom: 3em;
+    }
+
+    @media (max-width: 1000px) {
+        width: calc(100% - 22px);
     }
 `;
 

@@ -3,6 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as constants from '../constants';
 
+const ViewChangerWrapper = styled.div`
+    text-align: center;
+    font-size: 120%;
+    background-color: #17181d;
+    padding: 20px 0;
+
+    @media (max-width: 1000px) {
+        font-size: 100%;
+    }
+`;
+
 const ViewChangerLink = styled.a`
     display: inline-block;
     margin-right: 1em;
@@ -11,7 +22,7 @@ const ViewChangerLink = styled.a`
 `;
 
 const ViewChanger = ({ view, changeView }) => (
-    <div>
+    <ViewChangerWrapper>
         <ViewChangerLink
             onClick={() => changeView(constants.VIEWS.globalMarket)}
             view={constants.VIEWS.globalMarket}
@@ -40,7 +51,7 @@ const ViewChanger = ({ view, changeView }) => (
         >
             Ripple
         </ViewChangerLink>
-    </div>
+    </ViewChangerWrapper>
 );
 
 ViewChanger.propTypes = {

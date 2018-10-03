@@ -13,6 +13,10 @@ const ChartContainer = styled.div`
     > div {
         padding: 2em 0;
     }
+
+    @media (max-width: 1000px) {
+        width: calc(100% - 22px);
+    }
 `;
 
 const DoughnutChart = props => {
